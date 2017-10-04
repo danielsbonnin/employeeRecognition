@@ -1,0 +1,68 @@
+[
+{
+  "model": "teamiota.location",
+  "pk": 1,
+  "fields": {
+    "name": "Portland"
+  }
+},
+{
+  "model": "teamiota.location",
+  "pk": 2,
+  "fields": {
+    "name": "Chicago"
+  }
+},
+{
+  "model": "teamiota.location",
+  "pk": 3,
+  "fields": {
+    "name": "San Francisco"
+  }
+},
+{
+  "model": "teamiota.department",
+  "pk": 1,
+  "fields": {
+    "name": "Sales"
+  }
+},
+{
+  "model": "teamiota.department",
+  "pk": 2,
+  "fields": {
+    "name": "Technology"
+  }
+},
+{
+  "model": "teamiota.department",
+  "pk": 3,
+  "fields": {
+    "name": "Accounting"
+  }
+},
+{
+  "model": "teamiota.award",
+  "pk": 1,
+  "fields": {
+    "awardTemplate": "blue",
+    "awardType": "Above and Beyond"
+  }
+},
+{
+  "model": "teamiota.award",
+  "pk": 2,
+  "fields": {
+    "awardTemplate": "green",
+    "awardType": "Innovation Award"
+  }
+},
+{
+  "model": "teamiota.award",
+  "pk": 3,
+  "fields": {
+    "awardTemplate": "black",
+    "awardType": "Security Award"
+  }
+}
+]

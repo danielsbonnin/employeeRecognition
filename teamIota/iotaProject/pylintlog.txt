@@ -1,0 +1,22 @@
+************* Module administrator.admin
+C:  9, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+************* Module administrator.apps
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+************* Module administrator.reports
+I:  9, 0: Locally disabling too-few-public-methods (R0903) (locally-disabled)
+I: 34, 0: Locally disabling too-few-public-methods (R0903) (locally-disabled)
+I: 34, 0: Locally disabling too-many-locals (R0914) (locally-disabled)
+I: 34, 0: Locally disabling too-many-branches (R0912) (locally-disabled)
+I: 99, 0: Locally disabling line-too-long (C0301) (locally-disabled)
+I:248, 0: Locally disabling unused-variable (W0612) (locally-disabled)
+R: 76,12: Redefinition of self.chart_data type from list to str (redefined-variable-type)
+************* Module administrator.tests
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  1, 0: Unused TestCase imported from django.test (unused-import)
+************* Module administrator.views
+W: 61, 0: Redefining built-in 'list' (redefined-builtin)
+W: 31, 8: No exception type(s) specified (bare-except)
+W:100, 4: No exception type(s) specified (bare-except)
+E:140,12: Instance of 'Report' has no 'apply_filters' member (no-member)

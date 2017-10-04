@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <fieldset>
+    	<legend>Edit {{ user_to_edit.nickname }}</legend>
+    	{{ edit_user_form.as_p }}
+    	<input type="submit"/>
+    </fieldset>
+</form>
+{% endblock %}

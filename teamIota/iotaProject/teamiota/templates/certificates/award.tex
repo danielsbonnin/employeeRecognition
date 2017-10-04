@@ -1,0 +1,56 @@
+{% autoescape off %}
+
+\documentclass[landscape,12pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {REPLACE{{ signaturePath }}REPLACE} }
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{color}
+\usepackage{fix-cm}
+
+\pagestyle{empty}
+\geometry{left=3.5cm, right=3.5cm, top=3.5cm, bottom=3.0cm}
+
+\begin{document}
+
+% Border
+\begin{tikzpicture}[overlay, remember picture]
+\draw[{{ awardColor }}, line width=3pt]  ($ (current page.north west) + (1.5cm,-1.5cm) $)
+    rectangle
+    ($ (current page.south east) + (-1.5cm,1.5cm) $);
+\draw[{{ awardColor }}, dashed]  ($ (current page.north west) + (2.0cm,-2.0cm) $)
+    rectangle
+    ($ (current page.south east) + (-2.0cm,2.0cm) $);
+    
+\end{tikzpicture}
+
+% Award Content
+\begin{center}
+
+\textcolor{REPLACE{{ awardColor }}REPLACE}{\textsc{\fontsize{55}{60}\selectfont {{ awardType }} }}
+
+\vspace{1.5cm}
+\emph{\large{This award is presented to}}
+
+\vspace{1.0cm}
+{\textbf{\fontsize{35}{40}\selectfont  {{ toName }} }}
+
+\vspace{1.5cm}
+\emph{\large{On this  {{ awardDay }}  day of  {{ awardMonth }}  in the year  {{ awardYear }}.}}
+
+\end{center}
+
+% Signature Block
+\vspace{\stretch{1}}
+\begin{flushright}
+\begin{tabular}{c}
+    \includegraphics{REPLACE{{ signature }}REPLACE}  \\ 
+    \hline
+    {{ fromName }}
+\end{tabular}
+\end{flushright}
+
+\end{document}
+
+{% endautoescape %}

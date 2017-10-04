@@ -1,0 +1,55 @@
+﻿{% extends 'base.html' %}
+
+{% block body %}
+
+<div container>
+	<div tabindex="0" class="dropdown button">
+		Manage Accounts &raquo;
+		<ul class="collection dropdown-content">
+			<div class="collection-item">
+				<a href='/administrator/add_user/'><button class="button--xsm">Add User</button></a>
+			</div>
+  			<div class="collection-item">
+  				<a href="/administrator/edit/"><button class="button--xsm">Edit User</button></a>
+			</div>
+			<div class="collection-item">
+				<a href="/administrator/list/"><button class="button--xsm">List Users</button></a>
+			</div>
+		</ul>
+	</div>
+
+
+
+	<div tabindex="0" class="dropdown button">
+		Reports &raquo;
+	<ul class="collection dropdown-content">
+	<div class="collection-item">
+		<a href='/administrator/reports/1'><button class="button--xsm">Awards by Type</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/2'><button class="button--xsm">Awards by Department</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/3'><button class="button--xsm">Awards by Location</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/4'><button class="button--xsm">Awards this Month</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/5'><button class="button--xsm">Awards this Year</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/6'><button class="button--xsm">Awards All Time</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/7'><button class="button--xsm">Awards Given by User</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/8'><button class="button--xsm">Awards Received by User</button></a>
+	</div>
+	<div class="collection-item">
+		<a href='/administrator/reports/custom/'><button class="button--xsm">Custom Report</button></a>
+	</div>
+	</ul>
+</div>
+{% endblock %}

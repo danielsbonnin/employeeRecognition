@@ -1,0 +1,57 @@
+﻿{% load staticfiles %}
+<script>
+	var getAwardDetail = function(thisAwardURL) {
+		$.ajax({url: thisAwardURL}).done(function(success) {
+			$("#awardDetailModal").html(success);
+			$("#awardDetailModal").modal('show');
+		});
+	}
+</script>
+<div class="container">
+<div id="awardDetailModal" class="modal" role="dialog"></div>
+</div>
+<div class="container">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Your Awards</h3>
+	</div>
+	<div class="panel-body">
+	<div class="container-fluid">		
+	
+		{% regroup awardList by awardType as deDupedAwards %}
+		{% for awardType in deDupedAwards %}
+			<div class="row">
+				<h4>{{ awardType.grouper }} <span class="label label-default">{{ awardType.list | length }}</span></h4>
+				{% for award in awardType.list %}
+					<div class="col-xs-6 col-md-3" id="ae_{{ award.id }}">
+						<a {#href="{{ award.get_absolute_url }}"#} class="thumbnail">
+							<img class="img-responsive center-block"  src="{{ award.certThumbnail.url }}">
+						</a>
+					</div>
+					<script>
+						$(function() {
+							$("#ae_{{ award.id }}").click(
+								function() {
+									thisAwardURL = "{{ award.get_absolute_url }}";
+									getAwardDetail(thisAwardURL);
+								});
+							});
+					</script>
+				{% endfor %}
+			</div>
+		{% endfor %}
+		<div class="row">
+			<div class="col-md-2 col-lg-2"></div>
+			<div class="col-md-3 col-lg-3">
+				<button id="newAwardbtn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newAwardDialogModal">Award Someone</button>
+			</div>
+			<div class="col-md-1 col-lg-1"></div>
+			<div class="col-md-3 col-lg-3">
+				<button id="revokebtn" type="button" data-toggle="modal" data-target="#revokeAlertModal" class="btn btn-danger btn-lg">Revoke Awards</button>
+			</div>
+			<div class="col-md-2 col-lg-2"></div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,15 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+*.pyc
+*.log
+*.pot
+.idea/
+eb-virt 
+teamiota/migrations/ 
+teamiota/media/signatures/ 
+*.png 
+*.pyc 
+localsettings.py

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" action="">
+	<fieldset>
+		<legend>Enter email of user to edit</legend>
+		{% csrf_token %}
+		<p>
+     		<label for="email">Existing Email:</label>
+    		<input type="text" name="email">
+    	</p>
+      	<input type='submit' value="Edit User"/>
+      </fieldset>
+  </form>
+  {% if noemail %}
+  <h5 class="text--warning">The email you searched for does not exist</h5>
+  {% endif %}
+{% endblock %}

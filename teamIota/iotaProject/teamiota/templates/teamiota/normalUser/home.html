@@ -1,0 +1,13 @@
+﻿{% extends 'teamiota/normalUser/basePage.html' %}
+{% block body_class %}normalUserHomeBody{% endblock %}
+{% block title %}Normal User Home{% endblock %}
+{% block pageType %}Home Page{% endblock %} {% block userName %}{{ NormalUser.user }}{% endblock %}
+{% block body_block %}
+
+{% include 'teamiota/normalUser/awardGrid.html' %}
+	
+
+{% include 'teamiota/normalUser/newAwardDialogModal.html' %}
+{% include 'teamiota/normalUser/revokeAlertModal.html' %}
+
+{% endblock %}

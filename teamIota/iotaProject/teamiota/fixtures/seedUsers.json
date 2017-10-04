@@ -1,0 +1,122 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$J0yJ3tpaRb7v$yhz8tQO7Gb8HsKKUOQYtT+LOnoMtPf6XptMqNN6Nsqo=",
+    "last_login": "2016-08-10T22:30:15.109Z",
+    "is_superuser": true,
+    "username": "######",
+    "first_name": "######",
+    "last_name": "######",
+    "email": "#####@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2016-08-10T22:30:15.096Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$30000$5uaVU3UT85b3$RoxYDFLVRdTH+v0sG34YbVjynnw3EYLCUOxbRfTMSa0=",
+    "last_login": "2016-08-10T22:31:17.891Z",
+    "is_superuser": false,
+    "username": "#####",
+    "first_name": "#####",
+    "last_name": "######",
+    "email": "#######@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-08-10T22:31:17.885Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$iTAtyPOHueOS$9LkybN5e3abpnN51qP3qylDwPc2lvSbw8y/GpHtpUsQ=",
+    "last_login": "2016-08-10T22:32:21.236Z",
+    "is_superuser": false,
+    "username": "#####",
+    "first_name": "#####",
+    "last_name": "#####",
+    "email": "#####@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-08-10T22:32:21.229Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$dVGYnNmrhotb$mj9ZJ1fDfX713AL5ZDpmoKVn1V0Xim0FSRDYOW7hY8s=",
+    "last_login": "2016-08-10T22:35:05.140Z",
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "#######@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-08-10T22:33:24.088Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "teamiota.normaluser",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "nickname": "########",
+    "location": 2,
+    "department": 2,
+    "isAdmin": false,
+    "signatureImage": ""
+  }
+},
+{
+  "model": "teamiota.normaluser",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "nickname": "#######",
+    "location": 1,
+    "department": 3,
+    "isAdmin": false,
+    "signatureImage": ""
+  }
+},
+{
+  "model": "teamiota.normaluser",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "nickname": "######",
+    "location": 3,
+    "department": 1,
+    "isAdmin": false,
+    "signatureImage": ""
+  }
+},
+{
+  "model": "teamiota.normaluser",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "nickname": "######",
+    "location": 1,
+    "department": 1,
+    "isAdmin": true,
+    "signatureImage": ""
+  }
+}
+]

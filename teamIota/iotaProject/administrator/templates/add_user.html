@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+ {% if not new_normal_user %}
+	<form method="POST" action="">
+		{% csrf_token %}
+		<fieldset>
+			<legend>Add New User</legend>	
+	
+      		{{ user_form.as_p }}
+
+      		{{ upf.as_p }}
+			<input type='submit' value="Add User"/>
+		</fieldset>      
+  	</form>
+  {% else %}
+     <h5> {{ new_normal_user.nickname }} has been added. </h5>
+  {% endif %}
+
+{% endblock %}

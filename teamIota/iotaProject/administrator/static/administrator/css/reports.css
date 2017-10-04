@@ -1,0 +1,30 @@
+/* Reports page */
+body {
+	position:relative; 
+    padding-left:20px;
+    padding-right:20px;
+}
+
+/* Custom forms */
+/* Standard form fields */
+.fieldWrapper {
+	margin-bottom: 10px;
+}
+
+.fieldWrapper label {
+	float: left;
+	width: 120px;
+}
+
+.fieldWrapper select {
+	width: 150px;
+}
+
+/* Date form fields */
+.dateContainer div {
+	display: inline-block;
+}
+
+.dateContainer .fieldWrapper label {
+	float: clear;
+	width: auto;

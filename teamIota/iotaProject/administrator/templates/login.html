@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form method="POST" action="" role="form">
+  	{% csrf_token %} 
+  	<fieldset>
+  		<legend>Enter your Administrator Credentials</legend>
+  	<p>
+  		<label for="username">Username</label>	
+		<input type="text" value="" name="username" class="" label='UserName'>
+	</p>
+	<p>
+		<label for="password">Password</label>
+		<input id="login-password" type="password" class="" name="password" placeholder="password">
+	</p>
+	<p>
+		<input type="submit" id="btn-login" class="button" value="Login">
+	</p>
+	</fieldset>
+</form>
+
+{% endblock %}

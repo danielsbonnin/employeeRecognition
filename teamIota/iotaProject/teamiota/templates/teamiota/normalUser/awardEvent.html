@@ -1,0 +1,65 @@
+﻿{% load staticfiles %}
+<script>
+    // Prints the current certificate in landscape mode, using the browser's print interface
+
+    // src: http://stackoverflow.com/questions/2909033/
+    // using-javascript-to-print-imageshttp://stackoverflow.com/
+    // questions/2909033/using-javascript-to-print-images
+
+    // The following html is loaded into a new window
+    // "</scri" + "pt>" to avoid the js from being parsed in the wrong context
+    function ImagetoPrint(source) {
+        // HTML return code below except <img>, is mostly from src above.
+        // Allow time to load the window and print dialog, then close window.
+        return "<head><script>function step1(){\
+            setTimeout('step2()', 10);}\
+            function step2(){window.print();window.close()}\
+            </scri" + "pt></head><body onload='step1()'>\
+            <img style=\" @page { size: landscape; } height: 100%; width: auto;\" src=\"{{ certImg }}\" /></body>";
+    }
+
+    // Open a new window, load html, load print dialog, close new window
+    var printCert = function printCert() {
+        Pagelink = "about:blank";
+        var pwa = window.open(Pagelink, "_new");
+        pwa.document.open();
+        pwa.document.write(ImagetoPrint());
+        pwa.document.close();
+    }
+</script>
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{{ object }}</h4>
+        </div>
+        <div class="container-fluid">
+
+                <img class="img-responsive" id="img" src="{{ certImg }}">
+
+            <div class="row" style="padding-bottom: 30px;">
+                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-md-3 col-lg-3">    
+                    <button id="printbtn"  type="button" class="btn btn-info btn-lg">Print Certificate</button>
+                </div>
+                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-md-3 col-lg-3">
+                    <a  href="{{ certPDF }}" download>
+                        <button id="savebtn" type="submit" class="btn btn-info btn-lg">Save PDF</button>
+                    </a>
+                </div>
+                <div class="col-md-2 col-lg-2"></div>
+            </div>
+            
+            <script>
+                $(function() {
+                    $("#printbtn").click(
+                        function() {
+                            printCert();
+                        });
+                    });
+            </script>
+        </div>
+    </div>
+</div>

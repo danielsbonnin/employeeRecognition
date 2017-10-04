@@ -1,0 +1,58 @@
+﻿{% load i18n widget_tweaks %}
+<div class="modal" id="drawSignatureModal">
+<div class="modal-dialog modal-dialog" role="dialog">
+	<div class="modal-content" id="sigContentContainer">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Draw Your Signature</h4>
+		</div>
+
+		<form method="post" id="drawSigForm" enctype="multipart/form-data" action="{% url 'normalUsersPortal' %}">
+			{% csrf_token %}
+			<div class="sigPad">
+	    		<canvas class="pad" width="350" height="100"></canvas>
+	    		<input type="hidden" id="imgOutput" name="imgOutput">
+	    		<a href="#clear"><button id="clearbutton" class="clearbutton" type="button">Clear</button></a>
+	    		
+			</div>
+    		<div class="modal-footer">
+    			<img id="sigImg">
+    			
+    			<button type="submit" class="btn btn-primary">Save This Signature</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+<script>
+
+$(function(){
+	if (!window.chrome) {
+		$('#clearbutton').click(function() {
+			location.reload();
+		});
+	}
+})
+
+
+var pad = $('.sigPad').signaturePad({drawOnly:true});
+
+$('#drawSigForm').submit(function(e) {
+	var img = pad.getSignatureImage();
+	$('#imgOutput').attr('value', img);
+	var url = "{% url 'drawnSigSubmitted' %}";
+		$.ajax({
+		type: "POST",
+		url: url, 
+		data: $('#drawSigForm').serialize(),
+		contentType: "application/x-www-form-urlencoded",
+		success: function(data)
+		{
+			$('#sigContentContainer').html(data);
+		}
+	});
+	e.preventDefault();
+});
+</script>

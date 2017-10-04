@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<script>
+	$( function() {
+	  $( "#id_from_date" ).datepicker();
+	  $( "#id_to_date").datepicker();
+	} );
+</script>
+
+<form class="form--inline" method="POST" action="">
+	{% csrf_token %}
+	<fieldset>
+		<legend>Report Filters</legend>	
+
+		<!-- General Filters -->
+		<fieldset>
+			<legend>General</legend>
+			<div class="fieldWrapper">
+	    		{{ form.award_type.label_tag }}
+	    		{{ form.award_type }}
+	  		</div>
+			<div class="fieldWrapper">
+	    		{{ form.from_date.label_tag }}
+	    		{{ form.from_date }}
+	  		</div>
+
+	  		<div class="fieldWrapper">
+	    		{{ form.to_date.label_tag }}
+	    		{{ form.to_date }}
+	  		</div>
+		</fieldset>
+	  		
+
+		<!-- Awarder Filters -->
+  		<fieldset>
+  			<legend>Awarded By</legend>
+	  		<div class="fieldWrapper">
+	    		{{ form.from_user.label_tag }}
+	    		{{ form.from_user }}
+	  		</div>
+
+	  		<div class="fieldWrapper">
+	    		{{ form.from_dept.label_tag }}
+	    		{{ form.from_dept }}
+	  		</div>
+
+	  		<div class="fieldWrapper">
+	    		{{ form.from_location.label_tag }}
+	    		{{ form.from_location }}
+	  		</div>
+	  	</fieldset>
+
+ 		<!-- Awardee Filters -->
+		<fieldset>
+			<legend>Awarded To</legend>
+			<div class="fieldWrapper">
+	    		{{ form.to_user.label_tag }}
+	    		{{ form.to_user }}
+	  		</div>
+
+	  		<div class="fieldWrapper">
+	    		{{ form.to_dept.label_tag }}
+	    		{{ form.to_dept }}
+	  		</div>
+
+	  		<div class="fieldWrapper">
+	    		{{ form.to_location.label_tag }}
+	    		{{ form.to_location }}
+	  		</div>
+  		</fieldset>
+
+		<input type='submit' value="Create Report"/>
+	</fieldset>      
+</form>
+
+{% endblock %}

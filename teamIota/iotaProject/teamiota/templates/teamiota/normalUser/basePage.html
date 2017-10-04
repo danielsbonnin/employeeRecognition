@@ -1,0 +1,52 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/ico" href="{% static 'teamiota/favicon.ico' %}"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+        {# for signature-pad #}
+        <script src="{% static 'teamiota/signature-pad/jquery.signaturepad.js' %}"></script>
+        <script src="{% static 'teamiota/signature-pad/assets/json2.min.js' %}"></script>
+        <script src="{% static 'teamiota/signature-pad/assets/flashcanvas.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'teamiota/signature-pad/assets/jquery.signaturepad.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    {# src for body_class idea: stackoverflow.com/questions/14781281/django-template-is-extended-teamplate-able-to-change-css-in-parent-page #}
+    <body class="{% block body_class %}{% endblock %}">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-left"><img height="60px" src="{% static 'teamiota/iotaLogo.png' %}"></a>
+                    <h2 class="navbar-text">{% block pageType %} {% endblock %}{% if userName %} for {% else %} {% endif %}{% block userName %} {% endblock %}</h2>
+                </div>
+                <ul class="nav navbar-right">
+                    <li class="dropdown">
+                            <button type="button" class="btn btn-lg btn-default dropdown-toggle navbar-btn" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog"></span><span>  </span><span class="caret"></span>
+                            </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a data-toggle="modal" data-target="#editFormModal" href="#">Settings</a>
+                            <li><a data-toggle="modal" data-target="#drawSignatureModal" href="#">Draw Signature</a>
+                            <li><a href="{% url 'normalUserLogout' %}">Log Out</a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page-header">
+        </div>
+        {% block body_block %}{% endblock %} 
+        {% include 'teamiota/normalUser/editDialogModal.html' %}
+        {% include 'teamiota/normalUser/drawSignatureModal.html' %}
+    </body>
+</html>

@@ -1,0 +1,61 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+<h5>List of users</h5>
+<table class="table--border">
+	<thead>
+  		<tr>
+  		  <th class="tg-yw4l">Name</th>
+  		  <th class="tg-yw4l">Location</th>
+  		  <th class="tg-yw4l">Department</th>
+  		  <th class="tg-yw4l">Account Type</th>
+  		  <th class="tg-yw41">Edit</th>
+  		  <th class="tg-yw41">Delete</th>
+  		</tr>
+	</thead>
+	<tbody>
+  	{% for user in users %}
+  	<tr>
+  		<td>{{ user.nickname }}</td>
+  		<td>{{ user.location }}</td>
+  		<td>{{ user.department }}</td>
+  	  {% if user.isAdmin %}
+  	  	<td>Admin</td>
+    	{% else %}
+    		<td>User</td>
+    	{% endif %}
+	 	<td><a href='/administrator/edit_user/{{user.user.id}}'><button>Edit</button></a></td>
+   		<td><a href='#modal'><button id="delete_user_button" class="button--error" data-user-id="{{user.user.id}}">Delete</button></a></td>
+  	</tr>
+   	{% endfor %}
+	</tbody>
+</table>
+
+<!-- Modal for delete user confirmation -->
+<div id="modal" class="modal">
+  <div class="modal-container">
+    <div class="modal-header">
+      Delete User
+
+      <a href="#close" class="modal-close">&times;</a>
+    </div>
+
+    <div class="modal-body">
+      <p>This will permanently delete the selected user. Are you sure you want to continue?</p>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#close" class="modal-close"><button class="button--muted">No</button></a>
+      <a id="delete_user_link" href='#'><button class="button--error">Yes</button></a>
+    </div>
+  </div>
+</div>
+
+<!-- Script to pass data from main page to modal -->
+<script>
+  $(document).on("click", "#delete_user_button", function () {
+       var delete_link = "/administrator/delete/" + $(this).attr("data-user-id");
+       $("#delete_user_link").attr("href", delete_link);
+  });
+</script>
+
+{% endblock %}
